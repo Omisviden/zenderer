@@ -18,8 +18,9 @@ The [official Rust book](https://doc.rust-lang.org/book/) is a great resource if
 
 ## Running
 
-In the folder for a particular chapter, run:
+To run a chapter's code, checkout the branch for that chapter and run it with cargo:
 
 ```bash
+git checkout chapter1
 cargo run --release
 ```
