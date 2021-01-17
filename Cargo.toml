@@ -1,8 +1,13 @@
 [package]
-name = "lbar"
+name = "obsidian"
 version = "0.1.0"
 authors = ["Matthew J. Berger <matthewberger@nevada.unr.edu>"]
 edition = "2018"
 
+[workspace]
+exclude = ["benches"]
+members = ["crates/*", "viewer"]
+default-members = ["viewer"]
+
 [dependencies]
-winit = "0.24.0"
+obsidian_app = { path = "crates/obsidian_app" }
