@@ -5,7 +5,6 @@ authors = ["Matthew J. Berger <matthewberger@nevada.unr.edu>"]
 edition = "2018"
 
 [workspace]
-exclude = ["benches"]
 members = ["crates/*", "viewer"]
 default-members = ["viewer"]
 
