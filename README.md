@@ -1,6 +1,6 @@
 # Let's Build a Renderer
 
-This repo contains the accompanying source files for the `Let's Build a Renderer` book.
+This repo contains the accompanying source files for the [Let's Build a Renderer book](https://github.com/matthewjberger/letsbuildarenderer).
 
 ## Dependencies
 
