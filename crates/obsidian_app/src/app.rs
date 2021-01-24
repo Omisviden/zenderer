@@ -13,6 +13,7 @@ pub struct AppConfig {
     pub width: u32,
     pub height: u32,
     pub title: String,
+    pub logfile_name: String,
 }
 
 pub fn create_window(config: &AppConfig) -> Result<(EventLoop<()>, Window)> {
@@ -32,6 +33,7 @@ impl Default for AppConfig {
             width: 800,
             height: 600,
             title: "Obsidian Application".to_string(),
+            logfile_name: "obsidian.log".to_string(),
         }
     }
 }
@@ -49,7 +51,7 @@ pub trait Run {
 }
 
 pub fn run_application(mut runner: impl Run + 'static, configuration: AppConfig) -> Result<()> {
-    create_logger()?;
+    create_logger(&configuration.logfile_name)?;
 
     let (event_loop, _window) = create_window(&configuration)?;
 
