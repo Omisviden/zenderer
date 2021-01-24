@@ -21,6 +21,7 @@ fn main() -> Result<()> {
         viewer,
         AppConfig {
             title: "Obsidian Viewer".to_string(),
+            logfile_name: "viewer.log".to_string(),
             ..Default::default()
         },
     )
