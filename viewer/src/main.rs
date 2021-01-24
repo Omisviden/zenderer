@@ -6,7 +6,7 @@ pub struct Viewer;
 
 impl Run for Viewer {
     fn initialize(&mut self, _application: &mut Application) -> Result<()> {
-        info!("Viewer initialized.");
+        info!("Viewer initialized");
         Ok(())
     }
 

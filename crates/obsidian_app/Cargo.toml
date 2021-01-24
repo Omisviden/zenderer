@@ -7,4 +7,5 @@ edition = "2018"
 [dependencies]
 anyhow = "1.0.34"
 log = "0.4.11"
+simplelog = { version = "0.9.0", features = ["termcolor"] }
 winit = "0.24.0"
