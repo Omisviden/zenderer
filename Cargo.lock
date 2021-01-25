@@ -593,6 +593,7 @@ name = "obsidian"
 version = "0.1.0"
 dependencies = [
  "obsidian_app",
+ "obsidian_render",
 ]
 
 [[package]]
@@ -603,6 +604,15 @@ dependencies = [
  "log",
  "simplelog",
  "winit",
+]
+
+[[package]]
+name = "obsidian_render"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "log",
+ "raw-window-handle",
 ]
 
 [[package]]
