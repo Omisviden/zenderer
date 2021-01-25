@@ -18,6 +18,7 @@ impl VulkanRenderer {
         _window_handle: &impl HasRawWindowHandle,
         _dimensions: &[u32; 2],
     ) -> Result<Self> {
+        log::info!("Created Vulkan render backend");
         Ok(Self{})
     }
 }

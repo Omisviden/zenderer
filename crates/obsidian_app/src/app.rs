@@ -6,7 +6,7 @@ use winit::{
     event_loop::{ControlFlow, EventLoop},
     window::{Window, WindowBuilder},
 };
-
+use obsidian_render::{Render, Backend};
 use crate::logger::create_logger;
 
 pub struct AppConfig {
@@ -38,7 +38,22 @@ impl Default for AppConfig {
     }
 }
 
-pub struct Application;
+pub struct Application {
+    pub renderer: Box<dyn Render>,
+}
+
+impl Application {
+    pub fn new(window: &Window) -> Result<Self> {
+        let logical_size = window.inner_size();
+        let window_dimensions = [logical_size.width, logical_size.height];
+        let renderer = Box::new(Render::create_backend(
+            &Backend::Vulkan,
+            window,
+            &window_dimensions,
+        )?);
+        Ok(Self { renderer })
+    }
+}
 
 pub trait Run {
     fn initialize(&mut self, _application: &mut Application) -> Result<()> {
@@ -53,9 +68,9 @@ pub trait Run {
 pub fn run_application(mut runner: impl Run + 'static, configuration: AppConfig) -> Result<()> {
     create_logger(&configuration.logfile_name)?;
 
-    let (event_loop, _window) = create_window(&configuration)?;
+    let (event_loop, window) = create_window(&configuration)?;
 
-    let mut application = Application {};
+    let mut application = Application::new(&window)?;
 
     log::info!("Running Application");
     runner.initialize(&mut application)?;
