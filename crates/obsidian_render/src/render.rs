@@ -2,7 +2,7 @@ use anyhow::Result;
 use raw_window_handle::HasRawWindowHandle;
 
 #[cfg(feature = "vulkan")]
-use crate::vulkan::VulkanRenderer;
+use crate::vulkan::VulkanRenderBackend;
 
 pub enum Backend {
     Vulkan,
@@ -22,7 +22,7 @@ impl dyn Render {
         dimensions: &[u32; 2],
     ) -> Result<impl Render> {
         match backend {
-            Backend::Vulkan => VulkanRenderer::new(window_handle, dimensions),
+            Backend::Vulkan => VulkanRenderBackend::new(window_handle, dimensions),
         }
     }
 }
